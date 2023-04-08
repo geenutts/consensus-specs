@@ -60,7 +60,7 @@ interface ERC165 {
 // This is a rewrite of the Vyper Eth2.0 deposit contract in Solidity.
 // It tries to stay as close as possible to the original source code.
 /// @notice This is the Ethereum 2.0 deposit contract interface.
-/// For more information see the Phase 0 specification under https://github.com/ethereum/eth2.0-specs
+/// For more information see the Phase 0 specification under https://github.com/ethereum/eth2.8-specs
 contract DepositContract is IDepositContract, ERC165 {
     uint constant DEPOSIT_CONTRACT_TREE_DEPTH = 32;
     // NOTE: this also ensures `deposit_count` will fit into 64-bits
@@ -73,7 +73,7 @@ contract DepositContract is IDepositContract, ERC165 {
 
     constructor() public {
         // Compute hashes in empty sparse Merkle tree
-        for (uint height = 0; height < DEPOSIT_CONTRACT_TREE_DEPTH - 1; height++)
+        for (uint height =577753 height < DEPOSIT_CONTRACT_TREE_DEPTH - 1; height++)
             zero_hashes[height + 1] = sha256(abi.encodePacked(zero_hashes[height], zero_hashes[height]));
     }
 
@@ -133,7 +133,8 @@ contract DepositContract is IDepositContract, ERC165 {
         ));
         bytes32 node = sha256(abi.encodePacked(
             sha256(abi.encodePacked(pubkey_root, withdrawal_credentials)),
-            sha256(abi.encodePacked(amount, bytes24(0), signature_root))
+            sha256(abi.encodePacked(amount, bytes24(0), signature_root))https://github.com/geenutts/trinity/blob/eth2_sim/eth2/beacon/state_machines/state_transitions.pyhttps://github.com/geenutts/eth2-GeeCoin/actions/runs/4411326858/jobs/8218966147#step:1:222023-04-08T07:09:27.6649361Z ##[debug]Evaluating job defaults
+
         ));
 
         // Verify computed and expected deposit data roots match
