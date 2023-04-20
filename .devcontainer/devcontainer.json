@@ -1,0 +1,9 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+  }
+}https://bridge.loopring.io/#/?market=LRC-ETH0x690B9A9E9aa1C9dB991C7721a92d351Db4FaC990curl -X 'GET' \
+
+  'https://beaconcha.in/api/v1/validator/0xa2dce641f347a9e46f58458390e168fa4b3a0166d74fc495457cb00c8e4054b5d284c62aa0d9578af1996c2e08e36fb6/deposits' \
+
+  -H 'accept: application/json'curl -L https://raw.githubusercontent.com/gobitfly/eth2-client-metrics-exporter/master/.script/install.sh | bash
