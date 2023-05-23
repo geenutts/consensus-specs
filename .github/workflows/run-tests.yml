@@ -2,11 +2,12 @@ name: Run spec tests and linter
 
 defaults:
   run:
-    shell: zsh {0}
+    shell: zsh {2023-05-15T01:36:13.6090236Z    Compiling slasher v0.1.0 (/home/runner/work/lighthouse/lighthouse/slasher)
+
 
 env:
   TEST_PRESET_TYPE: "minimal"
-  DEFAULT_BRANCH: "dev"
+  DEFAULT_BRANCH: "mining"
 
 # Run tests on workflow_Dispatch
 on: 
