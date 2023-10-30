@@ -170,7 +170,12 @@ def on_block(store: Store, signed_block: SignedBeaconBlock) -> None:
     finalized_slot = compute_start_slot_at_epoch(store.finalized_checkpoint.epoch)
     assert block.slot > finalized_slot
     # Check block is a descendant of the finalized block at the checkpoint finalized slot
-    assert get_ancestor(store, block.parent_root, finalized_slot) == store.finalized_checkpoint.root
+    finalized_checkpoint_block = get_checkpoint_block(
+        store,
+        block.parent_root,
+        store.finalized_checkpoint.epoch,
+    )
+    assert store.finalized_checkpoint.root == finalized_checkpoint_block
 
     # Check the block is valid and compute the post-state
     state = pre_state.copy()
@@ -189,7 +194,8 @@ def on_block(store: Store, signed_block: SignedBeaconBlock) -> None:
     # Add proposer score boost if the block is timely
     time_into_slot = (store.time - store.genesis_time) % SECONDS_PER_SLOT
     is_before_attesting_interval = time_into_slot < SECONDS_PER_SLOT // INTERVALS_PER_SLOT
-    if get_current_slot(store) == block.slot and is_before_attesting_interval:
+    is_first_block = store.proposer_boost_root == Root()
+    if get_current_slot(store) == block.slot and is_before_attesting_interval and is_first_block:
         store.proposer_boost_root = hash_tree_root(block)
 
     # Update checkpoints in store if necessary

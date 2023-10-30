@@ -42,6 +42,7 @@ Features are researched and developed in parallel, and then consolidated into se
 Additional specifications and standards outside of requisite client functionality can be found in the following repos:
 
 * [Beacon APIs](https://github.com/ethereum/beacon-apis)
+* [Engine APIs](https://github.com/ethereum/execution-apis/tree/main/src/engine)
 * [Beacon Metrics](https://github.com/ethereum/beacon-metrics/)
 
 ## Design goals
@@ -64,6 +65,10 @@ The following are the broad design goals for the Ethereum proof-of-stake consens
 Documentation on the different components used during spec writing can be found here:
 * [YAML Test Generators](tests/generators/README.md)
 * [Executable Python Spec, with Py-tests](tests/core/pyspec/README.md)
+
+## Online viewer of the latest release (latest `master` branch)
+
+[Ethereum Consensus Specs](https://ethereum.github.io/consensus-specs/)
 
 ## Consensus spec tests
 
